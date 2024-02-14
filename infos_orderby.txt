@@ -1,0 +1,20 @@
+ments effectués récemment à partir de la table versement en utilisant la colonne date, vous pouvez utiliser la requête SQL suivante :
+
+Copier
+SELECT id, montant, chauffeur, date
+FROM versement
+ORDER BY date DESC
+LIMIT 10;
+Cette requête utilise l'instruction ORDER BY pour trier les résultats par ordre décroissant de la colonne date, puis elle utilise LIMIT 10 pour limiter le nombre de lignes résultantes à 10, vous donnant ainsi les 10 derniers versements effectués récemment.
+
+donne une requete sql pour afficher que les 10 derniers versement éffectuer récement par un chauffeur
+
+Si vous souhaitez afficher les 10 derniers versements effectués récemment par un chauffeur spécifique, vous pouvez ajouter une clause WHERE pour filtrer les résultats en fonction du chauffeur. Supposons que vous souhaitiez filtrer les résultats pour le chauffeur avec l'ID 1 (vous devrez ajuster cela en fonction de votre structure de données réelle). Voici la requête SQL :
+
+Copier
+SELECT id, montant, chauffeur, date
+FROM versement
+WHERE chauffeur = 1  -- Remplacez 1 par l'ID du chauffeur souhaité
+ORDER BY date DESC
+LIMIT 10;
+Assurez-vous de remplacer 1 par l'ID du chauffeur pour lequel vous souhaitez afficher les 10 derniers versements. Cette requête sélectionnera les enregistrements de la table versement où la colonne chauffeur correspond à l'ID spécifié, les triera par ordre décroissant de la colonne date et affichera les 10 derniers résultats.

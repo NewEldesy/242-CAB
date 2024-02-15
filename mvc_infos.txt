@@ -1,0 +1,142 @@
+
+1. modele.php:
+Copier
+<?php
+// modele.php
+
+class UserModel {
+    // Logique pour interagir avec la base de données ou gérer les données d'utilisateurs
+    // ...
+
+    public function addUser($userData) {
+        // Logique pour ajouter un utilisateur
+        // ...
+    }
+
+    public function getUser($userId) {
+        // Logique pour récupérer les informations d'un utilisateur
+        // ...
+    }
+
+    public function deleteUser($userId) {
+        // Logique pour supprimer un utilisateur
+        // ...
+    }
+
+    public function updateUser($userId, $newUserData) {
+        // Logique pour mettre à jour les informations d'un utilisateur
+        // ...
+    }
+}
+?>
+
+2. controler.php:
+Copier
+<?php
+// controler.php
+
+require_once('modele.php');
+
+class UserController {
+    private $userModel;
+
+    public function __construct() {
+        $this->userModel = new UserModel();
+    }
+
+    public function addUser($userData) {
+        $this->userModel->addUser($userData);
+        // Redirection ou affichage d'une vue appropriée
+        // ...
+    }
+
+    public function viewUser($userId) {
+        $userData = $this->userModel->getUser($userId);
+        // Affichage d'une vue avec les informations de l'utilisateur
+        // ...
+    }
+
+    public function deleteUser($userId) {
+        $this->userModel->deleteUser($userId);
+        // Redirection ou affichage d'une vue appropriée
+        // ...
+    }
+
+    public function updateUser($userId, $newUserData) {
+        $this->userModel->updateUser($userId, $newUserData);
+        // Redirection ou affichage d'une vue appropriée
+        // ...
+    }
+}
+?>
+
+3. add_user.php:
+Copier
+<?php
+// add_user.php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupérer les données du formulaire
+    $userData = $_POST;
+
+    // Instancier le contrôleur
+    $userController = new UserController();
+
+    // Appeler la méthode pour ajouter un utilisateur
+    $userController->addUser($userData);
+}
+// Affichage du formulaire ou redirection si nécessaire
+// ...
+?>
+
+4. view_user.php:
+Copier
+<?php
+// view_user.php
+
+// Récupérer l'ID de l'utilisateur à afficher depuis la requête
+$userId = $_GET['id'];
+
+// Instancier le contrôleur
+$userController = new UserController();
+
+// Appeler la méthode pour afficher les informations de l'utilisateur
+$userController->viewUser($userId);
+// Affichage de la vue avec les informations de l'utilisateur
+// ...
+?>
+
+5. delete_user.php:
+Copier
+<?php
+// delete_user.php
+
+// Récupérer l'ID de l'utilisateur à supprimer depuis la requête
+$userId = $_GET['id'];
+
+// Instancier le contrôleur
+$userController = new UserController();
+
+// Appeler la méthode pour supprimer un utilisateur
+$userController->deleteUser($userId);
+// Redirection ou affichage d'une vue appropriée
+// ...
+?>
+
+6. update_user.php:
+Copier
+<?php
+// update_user.php
+
+// Récupérer l'ID de l'utilisateur et les nouvelles données depuis la requête
+$userId = $_POST['id'];
+$newUserData = $_POST;
+
+// Instancier le contrôleur
+$userController = new UserController();
+
+// Appeler la méthode pour mettre à jour les informations de l'utilisateur
+$userController->updateUser($userId, $newUserData);
+// Redirection ou affichage d'une vue appropriée
+// ...
+?>

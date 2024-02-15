@@ -8,6 +8,9 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <!-- Base Url -->
+    <base href="http://localhost/242-CAB/V2/">
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 

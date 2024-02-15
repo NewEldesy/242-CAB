@@ -1,11 +1,6 @@
-<?php include_once('partials/head.php');?>
+<?php include_once('../partials/head.php');?>
 
-
-         
-
-
-            <!-- Blank Start -->
-            <!-- Typography Start -->
+            <!-- Content Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-12">
@@ -15,8 +10,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Typography End -->
-            <!-- Recent Sales Start -->
+            
+            <!-- Table Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
@@ -89,8 +84,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Recent Sales End -->
-            <!-- Blank End -->
+            <!-- Table End -->
+            <!-- Content End -->
 
-
-<?php include_once('partials/footer.php');?>
+<?php include_once('../partials/footer.php');?>

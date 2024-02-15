@@ -1,11 +1,6 @@
-<?php include_once('partials/head.php');?>
+<?php include_once('../partials/head.php');?>
 
-
-         
-
-
-            <!-- Blank Start -->
-            <!-- Typography Start -->
+            <!-- Content Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-12">
@@ -15,7 +10,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Typography End -->
 
             <!-- Form Start -->
             <div class="container-fluid pt-4 px-4">
@@ -60,7 +54,6 @@
                 </div>
             </div>
             <!-- Form End -->
-            <!-- Blank End -->
+            <!-- Content End -->
 
-
-<?php include_once('partials/footer.php');?>
+<?php include_once('../partials/footer.php');?>

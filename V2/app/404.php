@@ -1,4 +1,4 @@
-<?php include_once('../partials/head.php');?>
+<?php include_once('partials/head.php');?>
             
             <!-- 404 Start -->
             <div class="container-fluid pt-4 px-4">
@@ -13,4 +13,4 @@
             </div>
             <!-- 404 End -->
             
-<?php include_once('../partials/footer.php');?>
+<?php include_once('partials/footer.php');?>

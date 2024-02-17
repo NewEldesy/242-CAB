@@ -1,4 +1,4 @@
-<?php include_once('../partials/footer.php');?>
+<?php include_once('partials/footer.php');?>
 
             <!-- Content Start -->
             <div class="container-fluid pt-4 px-4">
@@ -81,4 +81,4 @@
             <!-- Table End -->
             <!-- Content End -->
 
-<?php include_once('../partials/footer.php');?>
+<?php include_once('partials/footer.php');?>

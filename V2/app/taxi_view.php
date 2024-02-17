@@ -1,4 +1,4 @@
-<?php include_once('../partials/head.php');?>
+<?php include_once('partials/head.php');?>
 
             <!-- Content Start -->
             <div class="container-fluid pt-4 px-4">
@@ -29,56 +29,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                    foreach($results as $result) {
+                                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
+                                    <td><?= $result['TaxiID'];?></td>
+                                    <td><?= $result['Marque'];?></td>
+                                    <td><?= $result['NumeroPlaque'];?></td>
+                                    <td><?= $result['DateMiseEnCirculation'];?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
+                                        <a class="btn btn-sm btn-primary" href="test.php?page=taxi&choix=delete&id=<?= $result['TaxiID'];?>">Delete</a>
+                                        <a class="btn btn-sm btn-primary" href="test.php?page=taxi&choix=update&id=<?= $result['TaxiID'];?>">Update</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -87,4 +51,4 @@
             <!-- Table End -->
             <!-- Content End -->
 
-<?php include_once('../partials/footer.php');?>
+<?php include_once('partials/footer.php');?>

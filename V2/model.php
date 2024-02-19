@@ -1,9 +1,33 @@
 <?php
 // Connection a la base de données
 function dbConnect() {
-    $database = new PDO('mysql:host=localhost;dbname=Taxi;charset=utf8', 'admin', 'Admin1234!');
+    try {
+        $database = new PDO('mysql:host=localhost;dbname=Taxi;charset=utf8', 'admin', 'Admin1234!');
+        $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //return $database;
+    } catch (PDOException $e) {
+        // Gérer l'erreur de connexion, consigner ou afficher un message d'erreur
+        exit("Erreur de connexion à la base de données : " . $e->getMessage());
+    }
 
     return $database;
+}
+
+//Connexion User
+function tryLogin($data) {
+    $database = dbConnect();
+    $query = "SELECT * FROM User WHERE Email = :email";
+    $stmt = $database->prepare($query);
+    $stmt->bindParam(':email', $data['Email']);
+    $stmt->execute();
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!empty($user) && password_verify($data['Password'], $user['Password'])) {
+        return $user;
+    } else {
+        return null;
+    }
 }
 
 //Compter le nombre de taxi enregistrer
@@ -50,6 +74,26 @@ function CompteVersements() {
     return $compte;
 }
 
+//récuppérer les utilisateurs enregistrer
+function getUser() {
+    $database = dbConnect();
+    $statement = $database->query("SELECT * FROM User");
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
+//récuppére un utilisateur par son id
+function getUserById($id) {
+    $database = dbConnect();
+    $statement = $database->prepare("SELECT * FROM User WHERE userID = :id");
+    $statement->bindParam(':id', $id, PDO::PARAM_INT);
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
 //récuppérer les taxis enregistrer
 function getTaxi() {
     $database = dbConnect();
@@ -65,7 +109,6 @@ function getTaxiById($id) {
     $statement = $database->prepare("SELECT * FROM Taxis WHERE TaxiID = :id");
     $statement->bindParam(':id', $id, PDO::PARAM_INT);
     $statement->execute();
-
     $result = $statement->fetch(PDO::FETCH_ASSOC);
 
     return $result;
@@ -92,10 +135,18 @@ function getVersementById($id) {
     return $result;
 }
 
+//Récuppérer les 10 dernières versement
+function getLastVersements() {
+    $database = dbConnect();
+    $statement = $database->query("SELECT * FROM Versements ORDER BY VersementID DESC LIMIT 10");
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
 //récuppérer les pannes enregistrer
 function getPanne() {
     $database = dbConnect();
-    //
     $statement = $database->query("SELECT * FROM Pannes");
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -110,6 +161,15 @@ function getPanneById($id) {
     $statement->execute();
 
     $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
+//Récuppérer les 10 dernières pannes
+function getLastPannes() {
+    $database = dbConnect();
+    $statement = $database->query("SELECT * FROM Pannes ORDER BY PanneID DESC LIMIT 10");
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $result;
 }
@@ -154,6 +214,20 @@ function getAttributionById($id) {
     $result = $statement->fetch(PDO::FETCH_ASSOC);
 
     return $result;
+}
+
+function addUser($data) {
+    $database = dbConnect();
+
+    $mdpHash = password_hash($data['Password'], PASSWORD_DEFAULT);
+
+    $stmt = $database->prepare("INSERT INTO User (Nom, Prenom, Email, Password) VALUES (:Nom, :Prenom, :Email, :Password)");
+    $stmt->bindParam(":Nom", $data['Nom']);
+    $stmt->bindParam(":Prenom", $data['Prenom']);
+    $stmt->bindParam(":Email", $data['Email']);
+    $stmt->bindParam(":Password", $mdpHash);
+
+    $stmt->execute();
 }
 
 //ajoutes un taxi
@@ -208,6 +282,14 @@ function addAttribution($data) {
 }
 
 //supprime un taxi
+function removeUser($id) {
+    $database = dbConnect();
+    $query = "DELETE FROM User WHERE UserID=" . $id;
+    $stmt = $database->prepare($query);
+    $stmt->execute();
+}
+
+//supprime un taxi
 function removeTaxi($id) {
     $database = dbConnect();
     $query = "DELETE FROM Taxis WHERE TaxiID=" . $id;
@@ -244,6 +326,19 @@ function removeAttribution($id) {
     $database = dbConnect();
     $query = "DELETE FROM 	AttributionTaxiChauffeur WHERE AttributionID=" . $id;
     $stmt = $database->prepare($query);
+    $stmt->execute();
+}
+
+//Update Taxi
+function updateUser($data) {
+    $database = dbConnect();
+    $stmt = $database->prepare("UPDATE User SET Nom=:Nom, Prenom=:Prenom, Email=:Email, Password=:Password WHERE UserID=:UserID");
+    $mdp = md5($data['Email']);
+    $stmt->bindParam(":Nom", $data['Nom']);
+    $stmt->bindParam(":Prenom", $data['Prenom']);
+    $stmt->bindParam(":Email", $data['Email']);
+    $stmt->bindParam(":Password", $mdp);
+    $stmt->bindParam(":UserID", $data['UserID']);
     $stmt->execute();
 }
 

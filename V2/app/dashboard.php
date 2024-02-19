@@ -43,138 +43,72 @@
             </div>
             <!-- Sale & Revenue End -->
 
-            <!-- Recent Versement -->
+            <!-- Recent Versement Start-->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Salse</h6>
-                        <a href="">Show All</a>
+                        <h6 class="mb-0">Recent Versement</h6>
+                        <a href="index.php?page=versement&action=view">Show All</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
                                 <tr class="text-dark">
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Invoice</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Chauffeur ID</th>
+                                    <th scope="col">Montant</th>
+                                    <th scope="col">Date Versement</th>
+                                    <th scope="col">Taxi ID</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($lastV as $versement) {?>
                                 <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    <td><?= $versement['VersementID'];?></td>
+                                    <td><?= $versement['ChauffeurID'];?></td>
+                                    <td><?= $versement['Montant'];?></td>
+                                    <td><?= $versement['DateVersement'];?></td>
+                                    <td><?= $versement['TaxiID'];?></td>
                                 </tr>
-                                <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
+                                <?php }?>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <!-- Recent Sales End -->
+            <!-- Recent Versement End -->
 
-            <!-- Recent Sales Start -->
+            <!-- Recent Pannes Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Recent Panne</h6>
-                        <a href="">Show All</a>
+                        <a href="index.php?page=panne&action=view">Show All</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
                                 <tr class="text-dark">
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Invoice</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Taxi ID</th>
+                                    <th scope="col">Date Panne</th>
+                                    <th scope="col">Description</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($lastP as $panne) {?>
                                 <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    <td><?= $panne['PanneID'];?></td>
+                                    <td><?= $panne['TaxiID'];?></td>
+                                    <td><?= $panne['DatePanne'];?></td>
+                                    <td><?= $panne['Description'];?></td>
                                 </tr>
-                                <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
+                                <?php }?>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <!-- Recent Sales End -->
+            <!-- Recent Pannes End -->
 
 <?php include_once('partials/footer.php');

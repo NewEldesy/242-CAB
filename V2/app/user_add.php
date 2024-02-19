@@ -5,7 +5,7 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h4>Add Taxi</h4>
+                            <h4>Add User</h4>
                         </div>
                     </div>
                 </div>
@@ -16,21 +16,24 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <form>
+                            <form action="index.php?page=user&action=add" method="POST">
                                 <div class="mb-3">
-                                    <label for="marquetaxi" class="form-label">Marque Voiture</label>
-                                    <input type="text" class="form-control" name="marquetaxi">
+                                    <label for="Nom" class="form-label">Nom</label>
+                                    <input type="text" class="form-control" name="Nom">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="plaquetaxi" class="form-label">Immatriculation Voiture</label>
-                                    <input type="text" class="form-control" name="plaquetaxi">
+                                    <label for="Prenom" class="form-label">Prenom</label>
+                                    <input type="text" class="form-control" name="Prenom">
                                 </div>
                                 <div class="mb-3">
-                                    <!-- dateC = date mise en circulation -->
-                                    <label for="dateC" class="form-label">Date Mise en Circulation</label>
-                                    <input type="text" class="form-control" name="dateC">
+                                    <label for="Email" class="form-label">Email</label>
+                                    <input type="text" class="form-control" name="Email">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Add Taxi</button>
+                                <div class="mb-3">
+                                    <label for="Password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="Password">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add User</button>
                             </form>
                         </div>
                     </div>

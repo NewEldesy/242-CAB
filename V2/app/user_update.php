@@ -16,22 +16,25 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <form>
-                                <input type="hidden" value="" name="idtaxi">
+                            <form action="index.php?page=user&action=update&id=<?= $result['UserID'];?>" method="POST">
+                                <input type="hidden" value="<?= $result['UserID'];?>" name="UserID">
                                 <div class="mb-3">
-                                    <label for="marquetaxi" class="form-label">Marque Voiture</label>
-                                    <input type="text" class="form-control" value="" name="marquetaxi">
+                                    <label for="Nom" class="form-label">Nom</label>
+                                    <input type="text" class="form-control" value="<?= $result['Nom'];?>" name="Nom">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="plaquetaxi" class="form-label">Immatriculation Voiture</label>
-                                    <input type="text" class="form-control" value="" name="plaquetaxi">
+                                    <label for="Prenom" class="form-label">Prenom</label>
+                                    <input type="text" class="form-control" value="<?= $result['Prenom'];?>" name="Prenom">
                                 </div>
                                 <div class="mb-3">
-                                    <!-- dateC = date mise en circulation -->
-                                    <label for="dateC" class="form-label">Date Mise en Circulation</label>
-                                    <input type="text" class="form-control" value="" name="dateC">
+                                    <label for="Email" class="form-label">Email</label>
+                                    <input type="text" class="form-control" value="<?= $result['Email'];?>" name="Email">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Add Taxi</button>
+                                <div class="mb-3">
+                                    <label for="Password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" value="<?= $result['Password'];?>" name="Password">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add User</button>
                             </form>
                         </div>
                     </div>

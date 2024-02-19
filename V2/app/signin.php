@@ -44,16 +44,18 @@
                             </a>
                             <h5>Login</h5>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Login</button>
+                        <form action="index.php" method="POST">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" name="Email" placeholder="name@example.com">
+                                <label for="floatingInput">Email address</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="password" class="form-control" name="Password" placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Login</button>
+                        </form>
                     </div>
                 </div>
             </div>

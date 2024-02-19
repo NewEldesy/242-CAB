@@ -16,7 +16,7 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <form action="test.php?page=taxi&choix=update&id=<?= $result['TaxiID'];?>" method="POST">
+                            <form action="index.php?page=taxi&action=update&id=<?= $result['TaxiID'];?>" method="POST">
                                 <input type="hidden" value="<?= $result['TaxiID'];?>" name="TaxiID">
                                 <div class="mb-3">
                                     <label for="Marque" class="form-label">Marque Voiture</label>

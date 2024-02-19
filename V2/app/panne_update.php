@@ -16,22 +16,22 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <form>
-                                <input type="hidden" value="" name="idtaxi">
+                            <form action="index.php?page=panne&action=update&id=<?= $result['PanneID'];?>" method="POST">
+                                <input type="hidden" value="<?= $result['PanneID'];?>" name="PanneID">
                                 <div class="mb-3">
-                                    <label for="marquetaxi" class="form-label">Marque Voiture</label>
-                                    <input type="text" class="form-control" value="" name="marquetaxi">
+                                    <label for="TaxiID" class="from-label">Taxi ID</label>
+                                    <input type="text" class="form-control" value="<?= $result['TaxiID'];?>" name="TaxiID">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="plaquetaxi" class="form-label">Immatriculation Voiture</label>
-                                    <input type="text" class="form-control" value="" name="plaquetaxi">
+                                    <!-- DatePanne = date Panne -->
+                                    <label for="DatePanne" class="form-label">Date Panne</label>
+                                    <input type="date" class="form-control" value="<?= $result['DatePanne'];?>" name="DatePanne">
                                 </div>
                                 <div class="mb-3">
-                                    <!-- dateC = date mise en circulation -->
-                                    <label for="dateC" class="form-label">Date Mise en Circulation</label>
-                                    <input type="text" class="form-control" value="" name="dateC">
+                                    <label for="Description" class="form-label">Panne Description</label>
+                                    <input type="text" class="form-control" value="<?= $result['Description'];?>" name="Description">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Add Taxi</button>
+                                <button type="submit" class="btn btn-primary">Update Panne</button>
                             </form>
                         </div>
                     </div>

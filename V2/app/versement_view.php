@@ -40,8 +40,8 @@
                                     <td><?= $result['DateVersement'];?></td>
                                     <td><?= $result['TaxiID'];?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="test.php?page=versement&choix=delete&id=<?= $result['VersementID'];?>">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="test.php?page=versement&choix=update&id=<?= $result['VersementID'];?>">Update</a>
+                                        <a class="btn btn-sm btn-primary" href="index.php?page=versement&action=delete&id=<?= $result['VersementID'];?>">Delete</a>
+                                        <a class="btn btn-sm btn-primary" href="index.php?page=versement&action=update&id=<?= $result['VersementID'];?>">Update</a>
                                     </td>
                                 </tr>
                                 <?php } ?>

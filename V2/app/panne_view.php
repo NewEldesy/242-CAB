@@ -26,56 +26,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($results as $result) {?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
+                                    <td><?= $result['PanneID'];?></td>
+                                    <td><?= $result['TaxiID'];?></td>
+                                    <td><?= $result['DatePanne'];?></td>
+                                    <td><?= $result['Description'];?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
+                                        <a class="btn btn-sm btn-primary" href="index.php?page=panne&action=delete&id=<?= $result['PanneID'];?>">Delete</a>
+                                        <a class="btn btn-sm btn-primary" href="index.php?page=panne&action=update&id=<?= $result['PanneID'];?>">Update</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
+                                <?php }?>
                             </tbody>
                         </table>
                     </div>

@@ -5,7 +5,7 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h4>Update Information</h4>
+                            <h4>Update Attribution</h4>
                         </div>
                     </div>
                 </div>
@@ -16,22 +16,25 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <form>
-                                <input type="hidden" value="" name="idtaxi">
+                            <form action="index.php?page=attribution&action=update&id=<?= $result['AttributionID'];?>" method="POST">
+                                <input type="hidden" value="<?= $result['AttributionID'];?>" name="AttributionID">
                                 <div class="mb-3">
-                                    <label for="marquetaxi" class="form-label">Marque Voiture</label>
-                                    <input type="text" class="form-control" value="" name="marquetaxi">
+                                    <label for="TaxiID" class="form-label">Taxi ID</label>
+                                    <input type="text" class="form-control" value="<?= $result['TaxiID'];?>" name="TaxiID">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="plaquetaxi" class="form-label">Immatriculation Voiture</label>
-                                    <input type="text" class="form-control" value="" name="plaquetaxi">
+                                    <label for="ChauffeurID" class="form-label">Chauffeur ID</label>
+                                    <input type="text" class="form-control" value="<?= $result['ChauffeurID'];?>" name="ChauffeurID">
                                 </div>
                                 <div class="mb-3">
-                                    <!-- dateC = date mise en circulation -->
-                                    <label for="dateC" class="form-label">Date Mise en Circulation</label>
-                                    <input type="text" class="form-control" value="" name="dateC">
+                                    <label for="DateDebut" class="form-label">Date Debut</label>
+                                    <input type="date" class="form-control" value="<?= $result['DateDebut'];?>" name="DateDebut">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Add Taxi</button>
+                                <div class="mb-3">
+                                    <label for="DateFin" class="form-label">Date Fin</label>
+                                    <input type="date" class="form-control" value="<?= $result['DateFin'];?>" name="DateFin">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </form>
                         </div>
                     </div>

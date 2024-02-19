@@ -36,8 +36,8 @@
                                     <td><?= $result['Nom'];?></td>
                                     <td><?= $result['Prenom'];?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="test.php?page=chauffeur&choix=delete&id=<?= $result['ChauffeurID'];?>">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="test.php?page=chauffeur&choix=update&id=<?= $result['ChauffeurID'];?>">Update</a>
+                                        <a class="btn btn-sm btn-primary" href="index.php?page=chauffeur&action=delete&id=<?= $result['ChauffeurID'];?>">Delete</a>
+                                        <a class="btn btn-sm btn-primary" href="index.php?page=chauffeur&action=update&id=<?= $result['ChauffeurID'];?>">Update</a>
                                     </td>
                                 </tr>
                                 <?php } ?>

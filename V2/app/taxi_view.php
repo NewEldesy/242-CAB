@@ -38,8 +38,8 @@
                                     <td><?= $result['NumeroPlaque'];?></td>
                                     <td><?= $result['DateMiseEnCirculation'];?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="test.php?page=taxi&choix=delete&id=<?= $result['TaxiID'];?>">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="test.php?page=taxi&choix=update&id=<?= $result['TaxiID'];?>">Update</a>
+                                        <a class="btn btn-sm btn-primary" href="index.php?page=taxi&action=delete&id=<?= $result['TaxiID'];?>">Delete</a>
+                                        <a class="btn btn-sm btn-primary" href="index.php?page=taxi&action=update&id=<?= $result['TaxiID'];?>">Update</a>
                                     </td>
                                 </tr>
                                 <?php } ?>

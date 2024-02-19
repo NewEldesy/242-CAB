@@ -5,7 +5,7 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h4>Taxi List</h4>
+                            <h4>Attribution List</h4>
                         </div>
                     </div>
                 </div>
@@ -20,65 +20,30 @@
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
+                                <!-- TaxiID	ChauffeurID	DateDebut	DateFin -->
                                 <tr class="text-dark">
                                     <th scope="col">#</th>
-                                    <th scope="col">Marque</th>
-                                    <th scope="col">N° Plaque</th>
-                                    <th scope="col">Date Circ.</th>
+                                    <th scope="col">Taxi ID</th>
+                                    <th scope="col">Chauffeur ID</th>
+                                    <th scope="col">Date Debut</th>
+                                    <th scope="col">Date Fin</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($results as $result) {?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
+                                    <td><?=$result['AttributionID']?></td>
+                                    <td><?=$result['TaxiID']?></td>
+                                    <td><?=$result['ChauffeurID']?></td>
+                                    <td><?=$result['DateDebut']?></td>
+                                    <td><?=$result['DateFin']?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
+                                        <a class="btn btn-sm btn-primary" href="index.php?page=attribution&action=delete&id=<?=$result['AttributionID']?>">Delete</a>
+                                        <a class="btn btn-sm btn-primary" href="index.php?page=attribution&action=update&id=<?=$result['AttributionID']?>">Update</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
+                                <?php }?>
                             </tbody>
                         </table>
                     </div>

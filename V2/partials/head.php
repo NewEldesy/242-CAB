@@ -39,57 +39,51 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                <a href="index.php?page=dashboard" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary">242 CAB</h3>
                 </a>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="index.php?page=dashboard" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-taxi me-2"></i>Taxi</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="taxi_view.php" class="dropdown-item">View</a>
-                            <a href="taxi_add.php" class="dropdown-item">Add</a>
-                            <a href="taxi_update.php" class="dropdown-item">Update</a>
+                            <a href="index.php?page=taxi&action=view" class="dropdown-item">View</a>
+                            <a href="index.php?page=taxi&action=add" class="dropdown-item">Add</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-user-slash me-2"></i>Chauffeur</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="chauffeur_view.php" class="dropdown-item">View</a>
-                            <a href="chauffeur_add.php" class="dropdown-item">Add</a>
-                            <a href="chauffeur_update.php" class="dropdown-item">Update</a>
+                            <a href="index.php?page=chauffeur&action=view" class="dropdown-item">View</a>
+                            <a href="index.php?page=chauffeur&action=add" class="dropdown-item">Add</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-users-cog me-2"></i>Attribution</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="attribution_view.php" class="dropdown-item">View</a>
-                            <a href="attribution_add.php" class="dropdown-item">Add</a>
-                            <a href="attribution_update.php" class="dropdown-item">Update</a>
+                            <a href="index.php?page=attribution&action=view" class="dropdown-item">View</a>
+                            <a href="index.php?page=attribution&action=add" class="dropdown-item">Add</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-receipt me-2"></i>Versement</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="versement_view.php" class="dropdown-item">View</a>
-                            <a href="versement_add.php" class="dropdown-item">Add</a>
-                            <a href="versement_update.php" class="dropdown-item">Update</a>
+                            <a href="index.php?page=versement&action=view" class="dropdown-item">View</a>
+                            <a href="index.php?page=versement&action=add" class="dropdown-item">Add</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-wrench me-2"></i>Panne</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="panne_view.php" class="dropdown-item">View</a>
-                            <a href="panne_add.php" class="dropdown-item">Add</a>
-                            <a href="panne_update.php" class="dropdown-item">Update</a>
+                            <a href="index.php?page=panne&action=view" class="dropdown-item">View</a>
+                            <a href="index.php?page=panne&action=add" class="dropdown-item">Add</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user me-2"></i>User</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="user_view.php" class="dropdown-item">View</a>
-                            <a href="user_add.php" class="dropdown-item">Add</a>
-                            <a href="user_update.php" class="dropdown-item">Update</a>
+                            <a href="index.php?page=user&action=view" class="dropdown-item">View</a>
+                            <a href="index.php?page=user&action=add" class="dropdown-item">Add</a>
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,7 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <form action="test.php?page=chauffeur&choix=add" method="POST">
+                            <form action="index.php?page=chauffeur&action=add" method="POST">
                                 <div class="mb-3">
                                     <label for="Nom" class="form-label">Nom</label>
                                     <input type="text" class="form-control" name="Nom">

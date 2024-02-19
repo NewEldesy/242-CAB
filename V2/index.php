@@ -1,80 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php session_start(); ?>
+<?php include_once('model.php'); ?>
+<?php
+    $_SESSION['username'] = "Fortune";
+?>
+<?php
+    if(empty($_SESSION)) {  header('location: app/signin.php');}
+    else {
+        if(isset($_GET['page'])) {
+            // Page Dashboard
+            if($_GET['page'] == "dashboard") {
+                $nTaxis = CompteTaxis();
+                $nChauffeurs = CompteChauffeurs();
+                $nPannes = ComptePannes();
+                $nVersements = CompteVersements();
 
-<head>
-    <meta charset="utf-8">
-    <title>Login - 242 CAB</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
-<body>
-    <!-- Sign In Start -->
-    <div class="container-fluid position-relative bg-white d-flex p-0">
-        <div class="container-fluid">
-            <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
-                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
-                    <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <a href="index.html" class="">
-                                <h3 class="text-primary">242 CAB</h3>
-                            </a>
-                            <h5>Login</h5>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Login</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Sign In End -->
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-</body>
-
-</html>
+                include_once('app/dashboard.php');
+            }
+            // Page Taxi
+            elseif($_GET['page'] == "taxi") {
+                if(isset($_GET['action'])) {
+                    if($_GET['action'] == "add") {
+                        if(isset($_POST) && !empty($_POST)) {
+                            addTaxi($_POST);
+                            header('location:index.php?page=taxi&action=view');
+                        }
+                        else {
+                            include_once('app/taxi_add.php');
+                        }
+                    }
+                    elseif($_GET['action'] == "update") {
+                        if(isset($_POST) && !empty($_POST)) {
+                            updateTaxi($_POST);
+                            header('location:index.php?page=taxi&action=view');
+                        }
+                        else {
+                            $result = getTaxiById($_GET['id']);
+                            include('app/taxi_update.php');
+                        }
+                    }
+                    elseif($_GET['action'] == "view") {
+                        $results = getTaxi();
+                        include_once('app/taxi_view.php');
+                    }
+                    elseif($_GET['action'] == "delete") {
+                        removeTaxi($_GET['id']);
+                        header('location: index.php?page=taxi&action=view');
+                    }
+                }
+            }
+            // Chauffeur
+            elseif($_GET['page'] == "chauffeur") {
+                if(isset($_GET['action'])) {
+                    if($_GET['action'] == "add") {
+                        if(isset($_POST) && !empty($_POST)) {
+                            addChauffeur($_POST);
+                            header('location:index.php?page=chauffeur&action=view');
+                        }
+                        else {
+                            include_once('app/chauffeur_add.php');
+                        }
+                    }
+                    elseif($_GET['action'] == "update") {
+                        if(isset($_POST) && !empty($_POST)) {
+                            updateChauffeur($_POST);
+                            header('location:index.php?page=chauffeur&action=view');
+                        }
+                        else {
+                            $result = getChauffeurById($_GET['id']);
+                            include('app/chauffeur_update.php');
+                        }
+                    }
+                    elseif($_GET['action'] == "view") {
+                        $results = getChauffeur();
+                        include_once('app/chauffeur_view.php');
+                    }
+                    elseif($_GET['action'] == "delete") {
+                        removeChauffeur($_GET['id']);
+                        header('location: index.php?page=chauffeur&action=view');
+                    }
+                }
+            }
+            // Panne
+            elseif($_GET['page'] == "panne") {
+                if(isset($_GET['action'])) {
+                    if($_GET['action'] == "add") {
+                        if(isset($_POST) && !empty($_POST)) {
+                            addPanne($_POST);
+                            header('location:index.php?page=panne&action=view');
+                        }
+                        else {
+                            $taxis = getTaxi();
+                            include_once('app/panne_add.php');
+                        }
+                    }
+                    elseif($_GET['action'] == "update") {
+                        if(isset($_POST) && !empty($_POST)) {
+                            updatePanne($_POST);
+                            header('location:index.php?page=panne&action=view');
+                        }
+                        else {
+                            $result = getPanneById($_GET['id']);
+                            include('app/panne_update.php');
+                        }
+                    }
+                    elseif($_GET['action'] == "view") {
+                        $results = getPanne();
+                        include_once('app/panne_view.php');
+                    }
+                    elseif($_GET['action'] == "delete") {
+                        removePanne($_GET['id']);
+                        header('location: index.php?page=panne&action=view');
+                    }
+                }
+            }
+            // Versement
+            elseif($_GET['page'] == "versement") {
+                if(isset($_GET['action'])) {
+                    if($_GET['action'] == "add") {
+                        if(isset($_POST) && !empty($_POST)) {
+                            addVersement($_POST);
+                            header('location:index.php?page=versement&action=view');
+                        }
+                        else {
+                            $chauffeurs = getChauffeur();
+                            $taxis =  getTaxi();
+                            include_once('app/versement_add.php');
+                        }
+                    }
+                    elseif($_GET['action'] == "update") {
+                        if(isset($_POST) && !empty($_POST)) {
+                            updateVersement($_POST);
+                            header('location:index.php?page=versement&action=view');
+                        }
+                        else {
+                            $chauffeurs = getChauffeur();
+                            $taxis =  getTaxi();
+                            $result = getVersementById($_GET['id']);
+                            include('app/versement_update.php');
+                        }
+                    }
+                    elseif($_GET['action'] == "view") {
+                        $results = getVersement();
+                        include_once('app/versement_view.php');
+                    }
+                    elseif($_GET['action'] == "delete") {
+                        removeVersement($_GET['id']);
+                        header('location: index.php?page=versement&action=view');
+                    }
+                }
+            }
+            // Attribution
+            elseif($_GET['page'] == "attribution") {
+                if(isset($_GET['action'])) {
+                    if($_GET['action'] == "add") {
+                        if(isset($_POST) && !empty($_POST)) {
+                            addAttribution($_POST);
+                            header('location:index.php?page=attribution&action=view');
+                        }
+                        else {
+                            $taxis = getTaxi();
+                            $chauffeurs = getChauffeur();
+                            include_once('app/attribution_add.php');
+                        }
+                    }
+                    elseif($_GET['action'] == "update") {
+                        if(isset($_POST) && !empty($_POST)) {
+                            updateAttribution($_POST);
+                            header('location:index.php?page=attribution&action=view');
+                        }
+                        else {
+                            $result = getAttributionById($_GET['id']);
+                            include('app/attribution_update.php');
+                        }
+                    }
+                    elseif($_GET['action'] == "view") {
+                        $results = getAttribution();
+                        include_once('app/attribution_view.php');
+                    }
+                    elseif($_GET['action'] == "delete") {
+                        removeAttribution($_GET['id']);
+                        header('location: index.php?page=attribution&action=view');
+                    }
+                }
+            }
+            else{
+                include_once('app/404.php');
+            }
+        }
+    }
+?>

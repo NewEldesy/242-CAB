@@ -16,7 +16,7 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <form action="test.php?page=versement&choix=update&id=<?= $result['VersementID'];?>" method="POST">
+                            <form action="index.php?page=versement&action=update&id=<?= $result['VersementID'];?>" method="POST">
                                 <div class="mb-3">
                                     <input type="hidden" class="form-control" value="<?= $result['VersementID'];?>" name="VersementID">
                                 </div>

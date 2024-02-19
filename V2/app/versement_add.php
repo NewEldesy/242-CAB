@@ -16,7 +16,7 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <form action="test.php?page=versement&choix=add" method="POST">
+                            <form action="index.php?page=versement&action=add" method="POST">
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="ChauffeurID">
                                         <?php foreach($chauffeurs as $chauffeur) {?>

@@ -10,34 +10,42 @@ function dbConnect() {
 function CompteTaxis() {
     $database = dbConnect();
     $stmt = $database->query("SELECT COUNT(*) FROM Taxis");
-    $compte = $stmt->execute();
+    $stmt->execute();
+    $stmt->bindColumn(1, $compte);
+    $stmt->fetch(PDO::FETCH_ASSOC);
 
     return $compte;
 }
 
 //Compter le nombre de chauffeur enregistrer
-function CompteChauffeur() {
+function CompteChauffeurs() {
     $database = dbConnect();
-    $stmt = $database->query("SELECT COUNT(*) FROM 	Chauffeurs");
-    $compte = $stmt->execute();
+    $stmt = $database->query("SELECT COUNT(*) FROM Chauffeurs");
+    $stmt->execute();
+    $stmt->bindColumn(1, $compte);
+    $stmt->fetch(PDO::FETCH_ASSOC);
 
     return $compte;
 }
 
 //Compter le nombre de Panne enregistrer
-function ComptePanne() {
+function ComptePannes() {
     $database = dbConnect();
     $stmt = $database->query("SELECT COUNT(*) FROM Pannes");
-    $compte = $stmt->execute();
+    $stmt->execute();
+    $stmt->bindColumn(1, $compte);
+    $stmt->fetch(PDO::FETCH_ASSOC);
 
     return $compte;
 }
 
 //Compter le nombre de Versement enregistrer
-function CompteVersement() {
+function CompteVersements() {
     $database = dbConnect();
     $stmt = $database->query("SELECT COUNT(*) FROM 	Versements");
-    $compte = $stmt->execute();
+    $stmt->execute();
+    $stmt->bindColumn(1, $compte);
+    $stmt->fetch(PDO::FETCH_ASSOC);
 
     return $compte;
 }
@@ -88,7 +96,7 @@ function getVersementById($id) {
 function getPanne() {
     $database = dbConnect();
     //
-    $statement = $database->query("SELECT * FROM Taxis");
+    $statement = $database->query("SELECT * FROM Pannes");
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $result;
@@ -275,10 +283,10 @@ function updateVersement($data) {
 //Update Panne
 function updatePanne($data) {
     $database = dbConnect();
-    $stmt = $database->prepare("UPDATE Pannes SET Marque=:Marque, NumeroPlaque=:NumeroPlaque, DateMiseEnCirculation=:DateMiseEnCirculation WHERE PanneID=:PanneID");
-    $stmt->bindParam(":Marque", $data['Marque']);
-    $stmt->bindParam(":NumeroPlaque", $data['NumeroPlaque']);
-    $stmt->bindParam(":DateMiseEnCirculation", $data['DateMiseEnCirculation']);
+    $stmt = $database->prepare("UPDATE Pannes SET TaxiID=:TaxiID, DatePanne=:DatePanne, Description=:Description WHERE PanneID=:PanneID");
+    $stmt->bindParam(":TaxiID", $data['TaxiID']);
+    $stmt->bindParam(":DatePanne", $data['DatePanne']);
+    $stmt->bindParam(":Description", $data['Description']);
     $stmt->bindParam(":PanneID", $data['PanneID']);
     $stmt->execute();
 }

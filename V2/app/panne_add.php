@@ -16,24 +16,23 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <form>
+                            <form action="index.php?page=panne&action=add" method="POST">
                                 <div class="form-floating mb-3">
-                                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                        <option selected>Chauffeur</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="TaxiID">
+                                        <?php foreach($taxis as $taxi) {?>
+                                        <option value="<?=$taxi['TaxiID']?>"><?=$taxi['NumeroPlaque'];?></option>
+                                        <?php }?>
                                     </select>
-                                    <label for="floatingSelect">Choix Chauffeur</label>
+                                    <label for="floatingSelect">Choix Taxi</label>
                                 </div>
                                 <div class="mb-3">
-                                    <!-- dateP = date Panne -->
-                                    <label for="dateP" class="form-label">Date Panne</label>
-                                    <input type="text" class="form-control" name="dateP">
+                                    <!-- DatePanne = date Panne -->
+                                    <label for="DatePanne" class="form-label">Date Panne</label>
+                                    <input type="date" class="form-control" name="DatePanne">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="descript" class="form-label">Panne Description</label>
-                                    <input type="text" class="form-control" name="descript">
+                                    <label for="Description" class="form-label">Panne Description</label>
+                                    <input type="text" class="form-control" name="Description">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Add Panne</button>
                             </form>

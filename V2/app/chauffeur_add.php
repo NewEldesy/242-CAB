@@ -16,14 +16,14 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <form>
+                            <form action="test.php?page=chauffeur&choix=add" method="POST">
                                 <div class="mb-3">
-                                    <label for="nomC" class="form-label">Nom</label>
-                                    <input type="text" class="form-control" name="nomC">
+                                    <label for="Nom" class="form-label">Nom</label>
+                                    <input type="text" class="form-control" name="Nom">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="prenomC" class="form-label">Prénom</label>
-                                    <input type="text" class="form-control" name="prenomC">
+                                    <label for="Prenom" class="form-label">Prénom</label>
+                                    <input type="text" class="form-control" name="Prenom">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Add Chauffeur</button>
                             </form>

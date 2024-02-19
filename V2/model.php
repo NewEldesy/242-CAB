@@ -66,7 +66,7 @@ function getTaxiById($id) {
 //récuppérer les versements enregistrer
 function getVersement() {
     $database = dbConnect();
-    $statement = $database->query("SELECT * FROM Taxis");
+    $statement = $database->query("SELECT * FROM Versements");
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $result;
@@ -109,7 +109,7 @@ function getPanneById($id) {
 //récuppérer les chauffeurs enregistrer
 function getChauffeur() {
     $database = dbConnect();
-    $statement = $database->query("SELECT * FROM Taxis");
+    $statement = $database->query("SELECT * FROM Chauffeurs");
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $result;
@@ -162,7 +162,7 @@ function addTaxi($data) {
 function addChauffeur($data) {
     $database = dbConnect();
     $stmt = $database->prepare("INSERT INTO Chauffeurs SET Nom=:Nom, Prenom=:Prenom");
-    $stmt->bindParam(":NumeroPlaque", $data['NumeroPlaque']);
+    $stmt->bindParam(":Nom", $data['Nom']);
     $stmt->bindParam(":Prenom", $data['Prenom']);
     $stmt->execute();
 }	
@@ -253,10 +253,9 @@ function updateTaxi($data) {
 //Update Chauffeur
 function updateChauffeur($data) {
     $database = dbConnect();
-    $stmt = $database->prepare("UPDATE Chauffeurs SET Marque=:Marque, NumeroPlaque=:NumeroPlaque, DateMiseEnCirculation=:DateMiseEnCirculation WHERE ChauffeurID=:ChauffeurID");
-    $stmt->bindParam(":Marque", $data['Marque']);
-    $stmt->bindParam(":NumeroPlaque", $data['NumeroPlaque']);
-    $stmt->bindParam(":DateMiseEnCirculation", $data['DateMiseEnCirculation']);
+    $stmt = $database->prepare("UPDATE Chauffeurs SET Nom=:Nom, Prenom=:Prenom WHERE ChauffeurID=:ChauffeurID");
+    $stmt->bindParam(":Nom", $data['Nom']);
+    $stmt->bindParam(":Prenom", $data['Prenom']);
     $stmt->bindParam(":ChauffeurID", $data['ChauffeurID']);
     $stmt->execute();
 }
@@ -264,10 +263,11 @@ function updateChauffeur($data) {
 //Update Versement
 function updateVersement($data) {
     $database = dbConnect();
-    $stmt = $database->prepare("UPDATE Versements SET Marque=:Marque, NumeroPlaque=:NumeroPlaque, DateMiseEnCirculation=:DateMiseEnCirculation WHERE VersementID=:VersementID");
-    $stmt->bindParam(":Marque", $data['Marque']);
-    $stmt->bindParam(":NumeroPlaque", $data['NumeroPlaque']);
-    $stmt->bindParam(":DateMiseEnCirculation", $data['DateMiseEnCirculation']);
+    $stmt = $database->prepare("UPDATE Versements SET ChauffeurID=:ChauffeurID, Montant=:Montant, DateVersement=:DateVersement,  TaxiID=:TaxiID WHERE VersementID=:VersementID");
+    $stmt->bindParam(":ChauffeurID", $data['ChauffeurID']);
+    $stmt->bindParam(":Montant", $data['Montant']);
+    $stmt->bindParam(":DateVersement", $data['DateVersement']);
+    $stmt->bindParam(":TaxiID", $data['TaxiID']);
     $stmt->bindParam(":VersementID", $data['VersementID']);
     $stmt->execute();
 }

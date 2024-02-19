@@ -16,15 +16,15 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <form>
-                                <input type="hidden" value="" name="idCU">
+                            <form action="test.php?page=chauffeur&choix=update&id=<?= $result['ChauffeurID'];?>" method="POST">
+                                <input type="hidden" value="<?= $result['ChauffeurID'];?>" name="ChauffeurID">
                                 <div class="mb-3">
-                                    <label for="NomCU" class="form-label">Nom</label>
-                                    <input type="text" class="form-control" value="" name="NomCU">
+                                    <label for="Nom" class="form-label">Nom</label>
+                                    <input type="text" class="form-control" value="<?= $result['Nom'];?>" name="Nom">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="prenomCU" class="form-label">Prénom(s)</label>
-                                    <input type="text" class="form-control" value="" name="plaquetaxi">
+                                    <label for="Prenom" class="form-label">Prénom(s)</label>
+                                    <input type="text" class="form-control" value="<?= $result['Prenom'];?>" name="Prenom">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>

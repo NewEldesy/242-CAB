@@ -1,11 +1,11 @@
-<?php include_once('partials/footer.php');?>
+<?php include_once('partials/head.php');?>
 
             <!-- Content Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h4>Taxi List</h4>
+                            <h4>Chauffeur List</h4>
                         </div>
                     </div>
                 </div>
@@ -28,51 +28,19 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                    foreach($results as $result) {
+                                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
+                                    <td><?= $result['ChauffeurID'];?></td>
+                                    <td><?= $result['Nom'];?></td>
+                                    <td><?= $result['Prenom'];?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
+                                        <a class="btn btn-sm btn-primary" href="test.php?page=chauffeur&choix=delete&id=<?= $result['ChauffeurID'];?>">Delete</a>
+                                        <a class="btn btn-sm btn-primary" href="test.php?page=chauffeur&choix=update&id=<?= $result['ChauffeurID'];?>">Update</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

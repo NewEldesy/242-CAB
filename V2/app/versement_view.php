@@ -5,7 +5,7 @@
                 <div class="row g-4">
                     <div class="col-sm-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h4>Taxi List</h4>
+                            <h4>Versement List</h4>
                         </div>
                     </div>
                 </div>
@@ -30,61 +30,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                    foreach($results as $result) {
+                                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td></td>
+                                    <td><?= $result['VersementID'];?></td>
+                                    <td><?= $result['ChauffeurID'];?></td>
+                                    <td><?= $result['Montant'];?></td>
+                                    <td><?= $result['DateVersement'];?></td>
+                                    <td><?= $result['TaxiID'];?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
+                                        <a class="btn btn-sm btn-primary" href="test.php?page=versement&choix=delete&id=<?= $result['VersementID'];?>">Delete</a>
+                                        <a class="btn btn-sm btn-primary" href="test.php?page=versement&choix=update&id=<?= $result['VersementID'];?>">Update</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td></td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td></td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td></td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Toyota</td>
-                                    <td>INV-0123</td>
-                                    <td>01 Jan 2045</td>
-                                    <td></td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="">Delete</a>
-                                        <a class="btn btn-sm btn-primary" href="">Update</a>
-                                    </td>
-                                </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

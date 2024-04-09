@@ -34,7 +34,7 @@
                                     <label for="Password" class="form-label">Password</label>
                                     <input type="password" class="form-control" value="<?= $result['Password'];?>" name="Password">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Add User</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </form>
                         </div>
                     </div>

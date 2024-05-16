@@ -398,3 +398,24 @@ function updateAttribution($data) {
     $stmt->bindParam(":AttributionID", $data['AttributionID']);
     $stmt->execute();
 }
+
+// Redirection vers le dashboard
+function redirectToDashboard() {
+    // Fonction pour rediriger vers le tableau de bord
+    header('location: index.php?page=dashboard');
+    exit;
+}
+
+// Fonction pour gérer les erreurs de base de données
+function handleDatabaseError($errorMessage) {
+    echo "Erreur de base de données : " . $errorMessage;
+    exit;
+}
+
+// Validez et filtrez le paramètre action pour éviter des problèmes de sécurité
+function validationAction(){
+    if (!in_array($action, ['add', 'update', 'view', 'delete'])) {
+        header('location:index.php?page=dashord');
+        exit;
+    }
+}

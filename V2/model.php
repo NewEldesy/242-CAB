@@ -216,6 +216,7 @@ function getAttributionById($id) {
     return $result;
 }
 
+//Ajout Utilisateur
 function addUser($data) {
     $database = dbConnect();
 
@@ -230,7 +231,7 @@ function addUser($data) {
     $stmt->execute();
 }
 
-//ajoutes un taxi
+//Ajout un taxi
 function addTaxi($data) {
     $database = dbConnect();
     $stmt = $database->prepare("INSERT INTO Taxis SET Marque=:Marque, NumeroPlaque=:NumeroPlaque, DateMiseEnCirculation=:DateMiseEnCirculation");
@@ -240,7 +241,7 @@ function addTaxi($data) {
     $stmt->execute();
 }
 
-//ajoutes un chauffeurs
+//Ajout un chauffeurs
 function addChauffeur($data) {
     $database = dbConnect();
     $stmt = $database->prepare("INSERT INTO Chauffeurs SET Nom=:Nom, Prenom=:Prenom");
@@ -249,7 +250,7 @@ function addChauffeur($data) {
     $stmt->execute();
 }	
 
-//ajoutes une panne
+//Ajout une panne
 function addPanne($data) {
     $database = dbConnect();
     $stmt = $database->prepare("INSERT INTO Pannes SET TaxiID=:TaxiID, DatePanne=:DatePanne, Description=:Description");
@@ -259,7 +260,7 @@ function addPanne($data) {
     $stmt->execute();
 }
 
-//ajoutes un versement
+//Ajout un versement
 function addVersement($data) {
     $database = dbConnect();
     $stmt = $database->prepare("INSERT INTO Versements SET ChauffeurID=:ChauffeurID, Montant=:Montant, DateVersement=:DateVersement, TaxiID=:TaxiID");
@@ -270,7 +271,7 @@ function addVersement($data) {
     $stmt->execute();
 }
 
-//ajoutes une attribution
+//Ajout une attribution
 function addAttribution($data) {
     $database = dbConnect();
     $stmt = $database->prepare("INSERT INTO AttributionTaxiChauffeur SET TaxiID=:TaxiID, ChauffeurID=:ChauffeurID, DateDebut=:DateDebut, DateFin=:DateFin");
@@ -281,7 +282,7 @@ function addAttribution($data) {
     $stmt->execute();
 }
 
-//supprime un taxi
+//Suppression un taxi
 function removeUser($id) {
     $database = dbConnect();
     $query = "DELETE FROM User WHERE UserID=" . $id;
@@ -289,7 +290,7 @@ function removeUser($id) {
     $stmt->execute();
 }
 
-//supprime un taxi
+//Suppression un taxi
 function removeTaxi($id) {
     $database = dbConnect();
     $query = "DELETE FROM Taxis WHERE TaxiID=" . $id;
@@ -297,7 +298,7 @@ function removeTaxi($id) {
     $stmt->execute();
 }
 
-//supprime un chauffeur
+//Suppression un chauffeur
 function removeChauffeur($id) {
     $database = dbConnect();
     $query = "DELETE FROM Chauffeurs WHERE ChauffeurID=" . $id;
@@ -305,7 +306,7 @@ function removeChauffeur($id) {
     $stmt->execute();
 }
 
-//supprime une panne
+//Suppression une panne
 function removePanne($id) {
     $database = dbConnect();
     $query = "DELETE FROM Pannes WHERE PanneID=" . $id;
@@ -313,7 +314,7 @@ function removePanne($id) {
     $stmt->execute();
 }
 
-//supprime un versement
+//Suppression un versement
 function removeVersement($id) {
     $database = dbConnect();
     $query = "DELETE FROM Versements WHERE VersementID=" . $id;
@@ -321,7 +322,7 @@ function removeVersement($id) {
     $stmt->execute();
 }
 
-//supprime une attribution
+//Suppression une attribution
 function removeAttribution($id) {
     $database = dbConnect();
     $query = "DELETE FROM 	AttributionTaxiChauffeur WHERE AttributionID=" . $id;
